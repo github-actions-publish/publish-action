@@ -33,5 +33,5 @@ runs:
         fi
           
         git tag -f -a ${{ inputs.tag }} -m "Release for ${{ inputs.tag }}"
-        git push -f --tags
+        git push -f --follow-tags
       shell: bash
