@@ -17,15 +17,16 @@ runs:
         git config --global user.name "${{github.event.pusher.name}}"
       shell: bash
     - run: |
-        if [[! -z "${{ inputs.branch }}" ]]:
-          
+        if [ ! -z "${{ inputs.branch }}" ]
+        then
           TEMP_DIR=`mktemp -d`
           mv -r * $TEMP_DIR/
           git switch -c ${{ inputs.branch }}
           rm -rf ./*
           mv $TEMP_DIR .
           git add .
-          if [[ -f node_modules ]]:
+          if [ -f node_modules ]
+          then
             git add -f node_modules
           fi
           git commit -m "Release for ${{ inputs.tag }}"
