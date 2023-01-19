@@ -30,10 +30,10 @@ runs:
           git add . || { ; }
           if [ -f node_modules ]
           then
-            git add -f node_modules || { ; }
+            git add -f node_modules || :
           fi
-          git commit -m "Release for ${{ inputs.tag }}" || { ; }
-          git push --set-upstream origin ${{ inputs.branch }} || { ; }
+          git commit -m "Release for ${{ inputs.tag }}" || :
+          git push --set-upstream origin ${{ inputs.branch }} || :
         fi
           
         git tag -f -a ${{ inputs.tag }} -m "Release for ${{ inputs.tag }}"
