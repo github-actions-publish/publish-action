@@ -23,7 +23,7 @@ runs:
           cp -r -a . $TEMP_DIR/
           git switch -c ${{ inputs.branch }}
           rm -rf ./*
-          mv $TEMP_DIR .
+          cp -r -a $TEMP_DIR/* .
           git add .
           if [ -f node_modules ]
           then
