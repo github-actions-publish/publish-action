@@ -17,6 +17,20 @@ runs:
         git config --global user.name "${{github.event.pusher.name}}"
       shell: bash
     - run: |
+        if [[! -z ${{ inputs.branch }} ]]:
+          
+          TEMP_DIR=`mktemp -d`
+          mv -r * $TEMP_DIR/
+          git switch -c ${{ inputs.branch }}
+          rm -rf ./*
+          mv $TEMP_DIR .
+          git add .
+          if [[ -f node_modules ]]:
+            git add -f node_modules
+          fi
+          git commit -m "Release for ${{ inputs.tag }}"
+        fi
+          
         git tag -f -a ${{ inputs.tag }} -m "Release for ${{ inputs.tag }}"
         git push -f --tags
       shell: bash
