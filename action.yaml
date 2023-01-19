@@ -19,3 +19,4 @@ runs:
     - run: |
         git tag -a -m "updating tag for ${{ inputs.tag }}" ${{ inputs.tag }}
         git push --follow-tags
+      shell: bash
