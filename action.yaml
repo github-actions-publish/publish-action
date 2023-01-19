@@ -20,7 +20,7 @@ runs:
         if [ ! -z "${{ inputs.branch }}" ]
         then
           TEMP_DIR=`mktemp -d`
-          cp -r -a $TEMP_DIR/
+          cp -r -a . $TEMP_DIR/
           git switch -c ${{ inputs.branch }}
           rm -rf ./*
           mv $TEMP_DIR .
