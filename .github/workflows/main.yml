@@ -7,7 +7,7 @@ jobs:
     name: Publish Github Action
     steps:
       - uses: actions/checkout@v3
-      - id: publish action
+      - id: publish-action
         uses: github-actions-publish/publish-action@main
         with:
           tag: v1
