@@ -20,10 +20,13 @@ runs:
         if [ ! -z "${{ inputs.branch }}" ]
         then
           TEMP_DIR=`mktemp -d`
+          ls -la
           cp -r -a . $TEMP_DIR/
           git switch -c ${{ inputs.branch }}
           rm -rf ./*
+          ls -la $TEMP_DIR/*
           cp -r -a $TEMP_DIR/* .
+          ls -la
           git add .
           if [ -f node_modules ]
           then
