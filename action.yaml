@@ -18,5 +18,5 @@ runs:
       shell: bash
     - run: |
         git tag -fa -m "updating tag for ${{ inputs.tag }}" ${{ inputs.tag }}
-        git push --follow-tags
+        git push -f --follow-tags
       shell: bash
