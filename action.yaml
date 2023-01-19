@@ -28,7 +28,7 @@ runs:
           cp -r -a $TEMP_DIR/* .
           ls -la
           git add . || :
-          if [ -f node_modules ]
+          if [ -d node_modules ]
           then
             git add -f node_modules || :
           fi
