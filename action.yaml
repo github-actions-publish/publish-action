@@ -17,6 +17,6 @@ runs:
         git config --global user.name "${{github.event.pusher.name}}"
       shell: bash
     - run: |
-        git tag -fa -m "updating tag for ${{ inputs.tag }}" ${{ inputs.tag }}
-        git push -f --follow-tags
+        git tag -f -a ${{ inputs.tag }}
+        git push -f --tags
       shell: bash
