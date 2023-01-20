@@ -19,16 +19,27 @@ runs:
     - run: |
         if [ ! -z "${{ inputs.branch }}" ]
         then
+          # make a temp directory to store repo contents in.
           TEMP_DIR=`mktemp -d`
           cp -r -a . $TEMP_DIR/
+          # switch to the branch we are going to publish to.
           git switch -c ${{ inputs.branch }}
+        
+          # remove contents and replace with contents stored in temp directory.
           rm -rf ./*
           cp -r -a $TEMP_DIR/* .
           git add . || :
-          if [ -d node_modules ]
+          
+          # If there is a dist folder, commit it.
+          if [ -d dist ]
+          then
+            git add -f dist || :
+          # only commit node_modules if there is no dist.
+          elif [ -d node_modules ]
           then
             git add -f node_modules || :
           fi
+        
           git commit -m "Release for ${{ inputs.tag }}" || :
           git push -f --set-upstream origin ${{ inputs.branch }} || :
         fi
