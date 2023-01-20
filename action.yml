@@ -1,4 +1,4 @@
-name: 'Publish Github Action'
+name: 'Publish Github Actions'
 description: 'Publishes Github action and tags release'
 inputs:
   tag:
