@@ -6,7 +6,7 @@ or the `node_modules` directory if it exists, even if these directories are in t
 ## Inputs
 ### `tag`
 
-**Required** The name of the git tag to use to tag the action. Default `"v1"`.
+**Required** The name of the git tag to use to tag the action.
 
 ## Example usage
 

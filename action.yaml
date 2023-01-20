@@ -4,7 +4,6 @@ inputs:
   tag:
     description: The name of the git tag to use to tag the action.
     required: true
-    default: v1
 
 runs:
   using: "composite"
