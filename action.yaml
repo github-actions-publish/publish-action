@@ -2,7 +2,7 @@ name: 'Publish Github Action'
 description: 'Publishes Github action and tags release'
 inputs:
   tag:
-    description: name of the git tag to use to tag the action.
+    description: The name of the git tag to use to tag the action.
     required: true
     default: v1
 
