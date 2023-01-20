@@ -1,5 +1,8 @@
 name: 'Publish Github Actions'
 description: 'Publishes Github action and tags release'
+branding:
+  icon: check
+  color: blue
 inputs:
   tag:
     description: The name of the git tag to use to tag the action.
