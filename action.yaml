@@ -14,14 +14,12 @@ runs:
         git config --global user.name "${{github.event.pusher.name}}"
       shell: bash
     - run: |
-        if [ ! -z "${{ inputs.branch }}" ]
-        then
         # If there is a dist folder, commit it.
         if [ -d dist ]
         then
           git add -f dist || :
           git commit -m "Release for ${{ inputs.tag }}" || :
-        # only commit node_modules if there is no dist.
+          # only commit node_modules if there is no dist.
         elif [ -d node_modules ]
         then
           git add -f node_modules || :
