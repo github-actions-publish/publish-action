@@ -20,10 +20,12 @@ runs:
         if [ -d dist ]
         then
           git add -f dist || :
+          git commit -m "Release for ${{ inputs.tag }}" || :
         # only commit node_modules if there is no dist.
         elif [ -d node_modules ]
         then
           git add -f node_modules || :
+          git commit -m "Release for ${{ inputs.tag }}" || :
         fi
           
         git tag -f -a ${{ inputs.tag }} -m "Release for ${{ inputs.tag }}"
