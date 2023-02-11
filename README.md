@@ -1,4 +1,4 @@
-# Github Actions Publish Action
+# Github Actions Publish Action [![.github/workflows/main.yml](https://github.com/github-actions-publish/publish-action/actions/workflows/main.yml/badge.svg)](https://github.com/github-actions-publish/publish-action/actions/workflows/main.yml)
 This action publishes github actions by tagging the repository.
 If the action is a Javascript action, the action will commit either the `dist` directory if it exists
 or the `node_modules` directory if it exists, even if these directories are in the `.gitignore`.
