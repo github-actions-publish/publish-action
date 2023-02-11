@@ -1,3 +1,4 @@
+name: Publish Github Action
 on: [push]
 permissions:
   contents: write
