@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Publish Github Action
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - id: publish-action
         uses: github-actions-publish/publish-action@main
         with:
